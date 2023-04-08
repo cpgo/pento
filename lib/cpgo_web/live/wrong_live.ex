@@ -8,6 +8,14 @@ defmodule CpgoWeb.WrongLive do
     {:ok, socket}
   end
 
+  def handle_params(_params, _uri, socket) do
+    correct_number = to_string(:rand.uniform(10))
+
+    socket = assign(socket, score: 0, message: "Make a guess!!!", correct: correct_number)
+
+    {:noreply, socket}
+  end
+
   def time() do
     DateTime.utc_now() |> to_string()
   end
@@ -29,20 +37,18 @@ defmodule CpgoWeb.WrongLive do
   def render(assigns) do
     ~H"""
     <h1>Your score: <%= @score %></h1>​
-    ​ 	​
+    ​ <.link patch={~p"/guess"}>Restart</.link>
     <h2>​
       ​ <%= @message %>​
       ​</h2>​
     ​ 	​
-    <h2>
-      ​
+      ​<div class="flex justify-evenly">
       <%= for n <- 1..10 do %>
-        <.link href="#" phx-click="guess" phx-value-number={n}>​
+        <.button phx-click="guess" phx-value-number={n}>​
     ​​        <%= n %>​
-    ​​      </.link>​
-        ​
+    ​​      </.button>​
       <% end %>
-    </h2>​​
+      </div>
     """
   end
 end
