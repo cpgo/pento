@@ -1,18 +1,21 @@
 defmodule CpgoWeb.WrongLive do
   use CpgoWeb, :live_view
 
-  def mount(_params, _session, socket) do
+  def initial_state(socket) do
     correct_number = to_string(:rand.uniform(10))
 
     socket = assign(socket, score: 0, message: "Make a guess!!!", correct: correct_number)
+
+    socket
+  end
+
+  def mount(_params, _session, socket) do
+    socket = initial_state(socket)
     {:ok, socket}
   end
 
   def handle_params(_params, _uri, socket) do
-    correct_number = to_string(:rand.uniform(10))
-
-    socket = assign(socket, score: 0, message: "Make a guess!!!", correct: correct_number)
-
+    socket = initial_state(socket)
     {:noreply, socket}
   end
 
@@ -42,13 +45,13 @@ defmodule CpgoWeb.WrongLive do
       ​ <%= @message %>​
       ​</h2>​
     ​ 	​
-      ​<div class="flex justify-evenly">
+    ​<div class="flex justify-evenly">
       <%= for n <- 1..10 do %>
         <.button phx-click="guess" phx-value-number={n}>​
-    ​​        <%= n %>​
-    ​​      </.button>​
+          ​​ <%= n %>​
+          ​​</.button>​
       <% end %>
-      </div>
+    </div>
     """
   end
 end
