@@ -21,7 +21,6 @@ defmodule CpgoWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
-    live "/guess", WrongLive
   end
 
   # Other scopes may use custom stacks.
@@ -69,6 +68,7 @@ defmodule CpgoWeb.Router do
       on_mount: [{CpgoWeb.UserAuth, :ensure_authenticated}] do
       live "/users/settings", UserSettingsLive, :edit
       live "/users/settings/confirm_email/:token", UserSettingsLive, :confirm_email
+      live "/guess", WrongLive
     end
   end
 

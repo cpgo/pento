@@ -1,5 +1,6 @@
 defmodule CpgoWeb.WrongLive do
   use CpgoWeb, :live_view
+  alias Cpgo.Accounts
 
   def initial_state(socket) do
     correct_number = to_string(:rand.uniform(10))
@@ -9,8 +10,12 @@ defmodule CpgoWeb.WrongLive do
     socket
   end
 
-  def mount(_params, _session, socket) do
-    socket = initial_state(socket)
+  def mount(_params, session, socket) do
+    socket =
+      socket
+      |> initial_state()
+      |> assign(session_id: session["live_socket_id"])
+
     {:ok, socket}
   end
 
@@ -52,6 +57,11 @@ defmodule CpgoWeb.WrongLive do
           ​​</.button>​
       <% end %>
     </div>
+
+    <pre>
+      <%= @current_user.email%>
+      <%= @session_id %>
+    </pre>
     """
   end
 end
