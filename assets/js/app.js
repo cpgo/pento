@@ -39,3 +39,6 @@ liveSocket.connect()
 // >> liveSocket.disableLatencySim()
 window.liveSocket = liveSocket
 
+window.addEventListener("phx:correct", ({detail}) => {
+  window.confetti()
+})

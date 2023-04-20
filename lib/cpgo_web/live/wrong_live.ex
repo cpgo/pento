@@ -31,7 +31,7 @@ defmodule CpgoWeb.WrongLive do
     message = "You win"
     score = socket.assigns.score + 1
     picks = [guess | socket.assigns.picks]
-
+    socket = push_event(socket, "correct", %{})
     {:noreply, assign(socket, message: message, score: score, picks: picks)}
   end
 
