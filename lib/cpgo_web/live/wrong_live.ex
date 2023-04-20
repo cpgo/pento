@@ -1,11 +1,10 @@
 defmodule CpgoWeb.WrongLive do
   use CpgoWeb, :live_view
-  alias Cpgo.Accounts
 
   def initial_state(socket) do
     correct_number = to_string(:rand.uniform(10))
 
-    socket = assign(socket, score: 0, message: "Make a guess!!!", correct: correct_number)
+    socket = assign(socket, score: 0, message: "Make a guess!!!", picks: [], correct: correct_number)
 
     socket
   end
@@ -31,15 +30,22 @@ defmodule CpgoWeb.WrongLive do
   def handle_event("guess", %{"number" => guess}, socket) when guess == socket.assigns.correct do
     message = "You win"
     score = socket.assigns.score + 1
+    picks = [guess | socket.assigns.picks]
 
-    {:noreply, assign(socket, message: message, score: score)}
+    {:noreply, assign(socket, message: message, score: score, picks: picks)}
   end
 
-  def handle_event("guess", %{"number" => _guess}, socket) do
+  def handle_event("guess", %{"number" => guess}, socket) do
     message = "You lose"
     score = socket.assigns.score - 1
+    picks = [guess | socket.assigns.picks]
 
-    {:noreply, assign(socket, message: message, score: score)}
+    {:noreply, assign(socket, message: message, score: score, picks: picks)}
+  end
+
+  def picked?(picks, number, correct) do
+    string_guess = Integer.to_string(number)
+    Enum.member?(picks, string_guess) && string_guess != correct
   end
 
   def render(assigns) do
@@ -52,16 +58,11 @@ defmodule CpgoWeb.WrongLive do
     ​ 	​
     ​<div class="flex justify-evenly">
       <%= for n <- 1..10 do %>
-        <.button phx-click="guess" phx-value-number={n}>​
+        <.button phx-click="guess" phx-value-number={n} id={"btn-#{n}"} class={if picked?(@picks, n, @correct), do: "invisible"}>​
           ​​ <%= n %>​
           ​​</.button>​
       <% end %>
     </div>
-
-    <pre>
-      <%= @current_user.email%>
-      <%= @session_id %>
-    </pre>
     """
   end
 end
