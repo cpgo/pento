@@ -39,6 +39,12 @@ liveSocket.connect()
 // >> liveSocket.disableLatencySim()
 window.liveSocket = liveSocket
 
-window.addEventListener("phx:correct", ({detail}) => {
-  window.confetti()
+window.addEventListener(`phx:correct`, (e) => {
+  console.log(e)
+  document.querySelectorAll(`[data-correct]`).forEach(el => {
+    if(el.id == e.detail.id){
+      console.log(liveSocket.execJS(el, el.getAttribute("data-correct")))
+      window.confetti()
+    }
+  })
 })

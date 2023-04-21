@@ -3,7 +3,7 @@ defmodule CpgoWeb.WrongLive do
 
   def initial_state(socket) do
     correct_number = to_string(:rand.uniform(10))
-
+    # correct_number = "1"
     socket = assign(socket, score: 0, message: "Make a guess!!!", picks: [], correct: correct_number)
 
     socket
@@ -31,7 +31,7 @@ defmodule CpgoWeb.WrongLive do
     message = "You win"
     score = socket.assigns.score + 1
     picks = [guess | socket.assigns.picks]
-    socket = push_event(socket, "correct", %{})
+    socket = push_event(socket, "correct", %{id: "btn-#{guess}"})
     {:noreply, assign(socket, message: message, score: score, picks: picks)}
   end
 
@@ -58,7 +58,7 @@ defmodule CpgoWeb.WrongLive do
     ​ 	​
     ​<div class="flex justify-evenly">
       <%= for n <- 1..10 do %>
-        <.button phx-click="guess" phx-value-number={n} id={"btn-#{n}"} class={if picked?(@picks, n, @correct), do: "invisible"}>​
+        <.button phx-click="guess" data-correct={JS.transition("animate-spin", time: 1000)} phx-value-number={n} id={"btn-#{n}"} class={if picked?(@picks, n, @correct), do: "invisible"}>​
           ​​ <%= n %>​
           ​​</.button>​
       <% end %>
