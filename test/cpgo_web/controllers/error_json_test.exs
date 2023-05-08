@@ -1,12 +1,12 @@
-defmodule CpgoWeb.ErrorJSONTest do
-  use CpgoWeb.ConnCase, async: true
+defmodule PentoWeb.ErrorJSONTest do
+  use PentoWeb.ConnCase, async: true
 
   test "renders 404" do
-    assert CpgoWeb.ErrorJSON.render("404.json", %{}) == %{errors: %{detail: "Not Found"}}
+    assert PentoWeb.ErrorJSON.render("404.json", %{}) == %{errors: %{detail: "Not Found"}}
   end
 
   test "renders 500" do
-    assert CpgoWeb.ErrorJSON.render("500.json", %{}) ==
+    assert PentoWeb.ErrorJSON.render("500.json", %{}) ==
              %{errors: %{detail: "Internal Server Error"}}
   end
 end

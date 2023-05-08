@@ -1,16 +1,16 @@
-defmodule CpgoWeb.UserAuth do
-  use CpgoWeb, :verified_routes
+defmodule PentoWeb.UserAuth do
+  use PentoWeb, :verified_routes
 
   import Plug.Conn
   import Phoenix.Controller
 
-  alias Cpgo.Accounts
+  alias Pento.Accounts
 
   # Make the remember me cookie valid for 60 days.
   # If you want bump or reduce this value, also change
   # the token expiry itself in UserToken.
   @max_age 60 * 60 * 24 * 60
-  @remember_me_cookie "_cpgo_web_user_remember_me"
+  @remember_me_cookie "_pento_web_user_remember_me"
   @remember_me_options [sign: true, max_age: @max_age, same_site: "Lax"]
 
   @doc """
@@ -75,7 +75,7 @@ defmodule CpgoWeb.UserAuth do
     user_token && Accounts.delete_user_session_token(user_token)
 
     if live_socket_id = get_session(conn, :live_socket_id) do
-      CpgoWeb.Endpoint.broadcast(live_socket_id, "disconnect", %{})
+      PentoWeb.Endpoint.broadcast(live_socket_id, "disconnect", %{})
     end
 
     conn
@@ -130,16 +130,16 @@ defmodule CpgoWeb.UserAuth do
   Use the `on_mount` lifecycle macro in LiveViews to mount or authenticate
   the current_user:
 
-      defmodule CpgoWeb.PageLive do
-        use CpgoWeb, :live_view
+      defmodule PentoWeb.PageLive do
+        use PentoWeb, :live_view
 
-        on_mount {CpgoWeb.UserAuth, :mount_current_user}
+        on_mount {PentoWeb.UserAuth, :mount_current_user}
         ...
       end
 
   Or use the `live_session` of your router to invoke the on_mount callback:
 
-      live_session :authenticated, on_mount: [{CpgoWeb.UserAuth, :ensure_authenticated}] do
+      live_session :authenticated, on_mount: [{PentoWeb.UserAuth, :ensure_authenticated}] do
         live "/profile", ProfileLive, :index
       end
   """

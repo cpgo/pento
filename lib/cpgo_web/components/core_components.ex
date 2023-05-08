@@ -1,4 +1,4 @@
-defmodule CpgoWeb.CoreComponents do
+defmodule PentoWeb.CoreComponents do
   @moduledoc """
   Provides core UI components.
 
@@ -17,7 +17,7 @@ defmodule CpgoWeb.CoreComponents do
   use Phoenix.Component
 
   alias Phoenix.LiveView.JS
-  import CpgoWeb.Gettext
+  import PentoWeb.Gettext
 
   @doc """
   Renders a modal.
@@ -625,9 +625,9 @@ defmodule CpgoWeb.CoreComponents do
     # with our gettext backend as first argument. Translations are
     # available in the errors.po file (as we use the "errors" domain).
     if count = opts[:count] do
-      Gettext.dngettext(CpgoWeb.Gettext, "errors", msg, msg, count, opts)
+      Gettext.dngettext(PentoWeb.Gettext, "errors", msg, msg, count, opts)
     else
-      Gettext.dgettext(CpgoWeb.Gettext, "errors", msg, opts)
+      Gettext.dgettext(PentoWeb.Gettext, "errors", msg, opts)
     end
   end
 

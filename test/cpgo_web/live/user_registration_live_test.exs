@@ -1,8 +1,8 @@
-defmodule CpgoWeb.UserRegistrationLiveTest do
-  use CpgoWeb.ConnCase
+defmodule PentoWeb.UserRegistrationLiveTest do
+  use PentoWeb.ConnCase
 
   import Phoenix.LiveViewTest
-  import Cpgo.AccountsFixtures
+  import Pento.AccountsFixtures
 
   describe "Registration page" do
     test "renders registration page", %{conn: conn} do

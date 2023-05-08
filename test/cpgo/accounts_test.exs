@@ -1,10 +1,10 @@
-defmodule Cpgo.AccountsTest do
-  use Cpgo.DataCase
+defmodule Pento.AccountsTest do
+  use Pento.DataCase
 
-  alias Cpgo.Accounts
+  alias Pento.Accounts
 
-  import Cpgo.AccountsFixtures
-  alias Cpgo.Accounts.{User, UserToken}
+  import Pento.AccountsFixtures
+  alias Pento.Accounts.{User, UserToken}
 
   describe "get_user_by_email/1" do
     test "does not return the user if the email does not exist" do

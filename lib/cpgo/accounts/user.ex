@@ -1,4 +1,4 @@
-defmodule Cpgo.Accounts.User do
+defmodule Pento.Accounts.User do
   use Ecto.Schema
   import Ecto.Changeset
 
@@ -80,7 +80,7 @@ defmodule Cpgo.Accounts.User do
   defp maybe_validate_unique_email(changeset, opts) do
     if Keyword.get(opts, :validate_email, true) do
       changeset
-      |> unsafe_validate_unique(:email, Cpgo.Repo)
+      |> unsafe_validate_unique(:email, Pento.Repo)
       |> unique_constraint(:email)
     else
       changeset
@@ -135,7 +135,7 @@ defmodule Cpgo.Accounts.User do
   If there is no user or the user doesn't have a password, we call
   `Bcrypt.no_user_verify/0` to avoid timing attacks.
   """
-  def valid_password?(%Cpgo.Accounts.User{hashed_password: hashed_password}, password)
+  def valid_password?(%Pento.Accounts.User{hashed_password: hashed_password}, password)
       when is_binary(hashed_password) and byte_size(password) > 0 do
     Bcrypt.verify_pass(password, hashed_password)
   end

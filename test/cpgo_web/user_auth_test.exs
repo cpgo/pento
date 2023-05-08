@@ -1,17 +1,17 @@
-defmodule CpgoWeb.UserAuthTest do
-  use CpgoWeb.ConnCase, async: true
+defmodule PentoWeb.UserAuthTest do
+  use PentoWeb.ConnCase, async: true
 
   alias Phoenix.LiveView
-  alias Cpgo.Accounts
-  alias CpgoWeb.UserAuth
-  import Cpgo.AccountsFixtures
+  alias Pento.Accounts
+  alias PentoWeb.UserAuth
+  import Pento.AccountsFixtures
 
-  @remember_me_cookie "_cpgo_web_user_remember_me"
+  @remember_me_cookie "_pento_web_user_remember_me"
 
   setup %{conn: conn} do
     conn =
       conn
-      |> Map.replace!(:secret_key_base, CpgoWeb.Endpoint.config(:secret_key_base))
+      |> Map.replace!(:secret_key_base, PentoWeb.Endpoint.config(:secret_key_base))
       |> init_test_session(%{})
 
     %{user: user_fixture(), conn: conn}
@@ -66,7 +66,7 @@ defmodule CpgoWeb.UserAuthTest do
 
     test "broadcasts to the given live_socket_id", %{conn: conn} do
       live_socket_id = "users_sessions:abcdef-token"
-      CpgoWeb.Endpoint.subscribe(live_socket_id)
+      PentoWeb.Endpoint.subscribe(live_socket_id)
 
       conn
       |> put_session(:live_socket_id, live_socket_id)
@@ -164,7 +164,7 @@ defmodule CpgoWeb.UserAuthTest do
       session = conn |> put_session(:user_token, user_token) |> get_session()
 
       socket = %LiveView.Socket{
-        endpoint: CpgoWeb.Endpoint,
+        endpoint: PentoWeb.Endpoint,
         assigns: %{__changed__: %{}, flash: %{}}
       }
 
@@ -176,7 +176,7 @@ defmodule CpgoWeb.UserAuthTest do
       session = conn |> get_session()
 
       socket = %LiveView.Socket{
-        endpoint: CpgoWeb.Endpoint,
+        endpoint: PentoWeb.Endpoint,
         assigns: %{__changed__: %{}, flash: %{}}
       }
 

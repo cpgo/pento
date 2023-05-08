@@ -1,4 +1,4 @@
-defmodule Cpgo.Application do
+defmodule Pento.Application do
   # See https://hexdocs.pm/elixir/Application.html
   # for more information on OTP Applications
   @moduledoc false
@@ -9,22 +9,22 @@ defmodule Cpgo.Application do
   def start(_type, _args) do
     children = [
       # Start the Telemetry supervisor
-      CpgoWeb.Telemetry,
+      PentoWeb.Telemetry,
       # Start the Ecto repository
-      Cpgo.Repo,
+      Pento.Repo,
       # Start the PubSub system
-      {Phoenix.PubSub, name: Cpgo.PubSub},
+      {Phoenix.PubSub, name: Pento.PubSub},
       # Start Finch
-      {Finch, name: Cpgo.Finch},
+      {Finch, name: Pento.Finch},
       # Start the Endpoint (http/https)
-      CpgoWeb.Endpoint
-      # Start a worker by calling: Cpgo.Worker.start_link(arg)
-      # {Cpgo.Worker, arg}
+      PentoWeb.Endpoint
+      # Start a worker by calling: Pento.Worker.start_link(arg)
+      # {Pento.Worker, arg}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
-    opts = [strategy: :one_for_one, name: Cpgo.Supervisor]
+    opts = [strategy: :one_for_one, name: Pento.Supervisor]
     Supervisor.start_link(children, opts)
   end
 
@@ -32,7 +32,7 @@ defmodule Cpgo.Application do
   # whenever the application is updated.
   @impl true
   def config_change(changed, _new, removed) do
-    CpgoWeb.Endpoint.config_change(changed, removed)
+    PentoWeb.Endpoint.config_change(changed, removed)
     :ok
   end
 end

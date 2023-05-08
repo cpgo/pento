@@ -1,8 +1,8 @@
-defmodule CpgoWeb.UserRegistrationLive do
-  use CpgoWeb, :live_view
+defmodule PentoWeb.UserRegistrationLive do
+  use PentoWeb, :live_view
 
-  alias Cpgo.Accounts
-  alias Cpgo.Accounts.User
+  alias Pento.Accounts
+  alias Pento.Accounts.User
 
   def render(assigns) do
     ~H"""

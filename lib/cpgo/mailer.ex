@@ -1,3 +1,3 @@
-defmodule Cpgo.Mailer do
-  use Swoosh.Mailer, otp_app: :cpgo
+defmodule Pento.Mailer do
+  use Swoosh.Mailer, otp_app: :pento
 end

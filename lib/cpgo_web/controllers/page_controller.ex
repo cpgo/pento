@@ -1,5 +1,5 @@
-defmodule CpgoWeb.PageController do
-  use CpgoWeb, :controller
+defmodule PentoWeb.PageController do
+  use PentoWeb, :controller
 
   def home(conn, _params) do
     # The home page is often custom made,

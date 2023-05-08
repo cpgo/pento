@@ -1,12 +1,12 @@
-defmodule Cpgo.Accounts do
+defmodule Pento.Accounts do
   @moduledoc """
   The Accounts context.
   """
 
   import Ecto.Query, warn: false
-  alias Cpgo.Repo
+  alias Pento.Repo
 
-  alias Cpgo.Accounts.{User, UserToken, UserNotifier}
+  alias Pento.Accounts.{User, UserToken, UserNotifier}
 
   ## Database getters
 

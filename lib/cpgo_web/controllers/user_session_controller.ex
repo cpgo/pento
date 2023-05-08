@@ -1,8 +1,8 @@
-defmodule CpgoWeb.UserSessionController do
-  use CpgoWeb, :controller
+defmodule PentoWeb.UserSessionController do
+  use PentoWeb, :controller
 
-  alias Cpgo.Accounts
-  alias CpgoWeb.UserAuth
+  alias Pento.Accounts
+  alias PentoWeb.UserAuth
 
   def create(conn, %{"_action" => "registered"} = params) do
     create(conn, params, "Account created successfully!")

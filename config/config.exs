@@ -7,17 +7,17 @@
 # General application configuration
 import Config
 
-config :cpgo,
-  ecto_repos: [Cpgo.Repo]
+config :pento,
+  ecto_repos: [Pento.Repo]
 
 # Configures the endpoint
-config :cpgo, CpgoWeb.Endpoint,
+config :pento, PentoWeb.Endpoint,
   url: [host: "localhost"],
   render_errors: [
-    formats: [html: CpgoWeb.ErrorHTML, json: CpgoWeb.ErrorJSON],
+    formats: [html: PentoWeb.ErrorHTML, json: PentoWeb.ErrorJSON],
     layout: false
   ],
-  pubsub_server: Cpgo.PubSub,
+  pubsub_server: Pento.PubSub,
   live_view: [signing_salt: "ZYkBfP0N"]
 
 # Configures the mailer
@@ -27,7 +27,7 @@ config :cpgo, CpgoWeb.Endpoint,
 #
 # For production it's recommended to configure a different adapter
 # at the `config/runtime.exs`.
-config :cpgo, Cpgo.Mailer, adapter: Swoosh.Adapters.Local
+config :pento, Pento.Mailer, adapter: Swoosh.Adapters.Local
 
 # Configure esbuild (the version is required)
 config :esbuild,

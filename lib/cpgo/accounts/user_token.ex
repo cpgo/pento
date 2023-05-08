@@ -1,7 +1,7 @@
-defmodule Cpgo.Accounts.UserToken do
+defmodule Pento.Accounts.UserToken do
   use Ecto.Schema
   import Ecto.Query
-  alias Cpgo.Accounts.UserToken
+  alias Pento.Accounts.UserToken
 
   @hash_algorithm :sha256
   @rand_size 32
@@ -17,7 +17,7 @@ defmodule Cpgo.Accounts.UserToken do
     field :token, :binary
     field :context, :string
     field :sent_to, :string
-    belongs_to :user, Cpgo.Accounts.User
+    belongs_to :user, Pento.Accounts.User
 
     timestamps(updated_at: false)
   end

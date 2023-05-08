@@ -1,10 +1,10 @@
-defmodule CpgoWeb.UserResetPasswordLiveTest do
-  use CpgoWeb.ConnCase
+defmodule PentoWeb.UserResetPasswordLiveTest do
+  use PentoWeb.ConnCase
 
   import Phoenix.LiveViewTest
-  import Cpgo.AccountsFixtures
+  import Pento.AccountsFixtures
 
-  alias Cpgo.Accounts
+  alias Pento.Accounts
 
   setup do
     user = user_fixture()

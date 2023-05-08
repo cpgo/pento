@@ -1,11 +1,11 @@
-defmodule CpgoWeb.UserForgotPasswordLiveTest do
-  use CpgoWeb.ConnCase
+defmodule PentoWeb.UserForgotPasswordLiveTest do
+  use PentoWeb.ConnCase
 
   import Phoenix.LiveViewTest
-  import Cpgo.AccountsFixtures
+  import Pento.AccountsFixtures
 
-  alias Cpgo.Accounts
-  alias Cpgo.Repo
+  alias Pento.Accounts
+  alias Pento.Repo
 
   describe "Forgot password page" do
     test "renders email page", %{conn: conn} do

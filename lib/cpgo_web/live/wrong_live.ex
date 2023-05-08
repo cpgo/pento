@@ -1,5 +1,5 @@
-defmodule CpgoWeb.WrongLive do
-  use CpgoWeb, :live_view
+defmodule PentoWeb.WrongLive do
+  use PentoWeb, :live_view
 
   def initial_state(socket) do
     correct_number = to_string(:rand.uniform(10))

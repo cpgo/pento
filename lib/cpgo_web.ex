@@ -1,12 +1,12 @@
-defmodule CpgoWeb do
+defmodule PentoWeb do
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, components, channels, and so on.
 
   This can be used in your application as:
 
-      use CpgoWeb, :controller
-      use CpgoWeb, :html
+      use PentoWeb, :controller
+      use PentoWeb, :html
 
   The definitions below will be executed for every controller,
   component, etc, so keep them short and clean, focused
@@ -40,10 +40,10 @@ defmodule CpgoWeb do
     quote do
       use Phoenix.Controller,
         formats: [:html, :json],
-        layouts: [html: CpgoWeb.Layouts]
+        layouts: [html: PentoWeb.Layouts]
 
       import Plug.Conn
-      import CpgoWeb.Gettext
+      import PentoWeb.Gettext
 
       unquote(verified_routes())
     end
@@ -52,7 +52,7 @@ defmodule CpgoWeb do
   def live_view do
     quote do
       use Phoenix.LiveView,
-        layout: {CpgoWeb.Layouts, :app}
+        layout: {PentoWeb.Layouts, :app}
 
       unquote(html_helpers())
     end
@@ -84,8 +84,8 @@ defmodule CpgoWeb do
       # HTML escaping functionality
       import Phoenix.HTML
       # Core UI components and translation
-      import CpgoWeb.CoreComponents
-      import CpgoWeb.Gettext
+      import PentoWeb.CoreComponents
+      import PentoWeb.Gettext
 
       # Shortcut for generating JS commands
       alias Phoenix.LiveView.JS
@@ -98,9 +98,9 @@ defmodule CpgoWeb do
   def verified_routes do
     quote do
       use Phoenix.VerifiedRoutes,
-        endpoint: CpgoWeb.Endpoint,
-        router: CpgoWeb.Router,
-        statics: CpgoWeb.static_paths()
+        endpoint: PentoWeb.Endpoint,
+        router: PentoWeb.Router,
+        statics: PentoWeb.static_paths()
     end
   end
 

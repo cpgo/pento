@@ -1,7 +1,7 @@
-defmodule CpgoWeb.UserSessionControllerTest do
-  use CpgoWeb.ConnCase, async: true
+defmodule PentoWeb.UserSessionControllerTest do
+  use PentoWeb.ConnCase, async: true
 
-  import Cpgo.AccountsFixtures
+  import Pento.AccountsFixtures
 
   setup do
     %{user: user_fixture()}
@@ -35,7 +35,7 @@ defmodule CpgoWeb.UserSessionControllerTest do
           }
         })
 
-      assert conn.resp_cookies["_cpgo_web_user_remember_me"]
+      assert conn.resp_cookies["_pento_web_user_remember_me"]
       assert redirected_to(conn) == ~p"/"
     end
 

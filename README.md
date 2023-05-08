@@ -1,4 +1,4 @@
-# Cpgo
+# Pento
 
 To start your Phoenix server:
 

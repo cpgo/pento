@@ -1,8 +1,8 @@
-defmodule CpgoWeb.UserLoginLiveTest do
-  use CpgoWeb.ConnCase
+defmodule PentoWeb.UserLoginLiveTest do
+  use PentoWeb.ConnCase
 
   import Phoenix.LiveViewTest
-  import Cpgo.AccountsFixtures
+  import Pento.AccountsFixtures
 
   describe "Log in page" do
     test "renders log in page", %{conn: conn} do

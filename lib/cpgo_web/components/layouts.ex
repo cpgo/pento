@@ -1,5 +1,5 @@
-defmodule CpgoWeb.Layouts do
-  use CpgoWeb, :html
+defmodule PentoWeb.Layouts do
+  use PentoWeb, :html
 
   embed_templates "layouts/*"
 end

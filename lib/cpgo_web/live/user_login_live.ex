@@ -1,5 +1,5 @@
-defmodule CpgoWeb.UserLoginLive do
-  use CpgoWeb, :live_view
+defmodule PentoWeb.UserLoginLive do
+  use PentoWeb, :live_view
 
   def render(assigns) do
     ~H"""

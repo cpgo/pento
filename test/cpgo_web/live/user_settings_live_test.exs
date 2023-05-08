@@ -1,9 +1,9 @@
-defmodule CpgoWeb.UserSettingsLiveTest do
-  use CpgoWeb.ConnCase
+defmodule PentoWeb.UserSettingsLiveTest do
+  use PentoWeb.ConnCase
 
-  alias Cpgo.Accounts
+  alias Pento.Accounts
   import Phoenix.LiveViewTest
-  import Cpgo.AccountsFixtures
+  import Pento.AccountsFixtures
 
   describe "Settings page" do
     test "renders settings page", %{conn: conn} do

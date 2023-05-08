@@ -1,7 +1,7 @@
-defmodule CpgoWeb.UserForgotPasswordLive do
-  use CpgoWeb, :live_view
+defmodule PentoWeb.UserForgotPasswordLive do
+  use PentoWeb, :live_view
 
-  alias Cpgo.Accounts
+  alias Pento.Accounts
 
   def render(assigns) do
     ~H"""

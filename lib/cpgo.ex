@@ -1,6 +1,6 @@
-defmodule Cpgo do
+defmodule Pento do
   @moduledoc """
-  Cpgo keeps the contexts that define your domain
+  Pento keeps the contexts that define your domain
   and business logic.
 
   Contexts are also responsible for managing your data, regardless

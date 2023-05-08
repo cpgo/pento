@@ -1,9 +1,9 @@
-defmodule Cpgo.Release do
+defmodule Pento.Release do
   @moduledoc """
   Used for executing DB release tasks when run in production without Mix
   installed.
   """
-  @app :cpgo
+  @app :pento
 
   def migrate do
     load_app()

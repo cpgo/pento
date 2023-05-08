@@ -1,11 +1,11 @@
-defmodule CpgoWeb.UserConfirmationInstructionsLiveTest do
-  use CpgoWeb.ConnCase
+defmodule PentoWeb.UserConfirmationInstructionsLiveTest do
+  use PentoWeb.ConnCase
 
   import Phoenix.LiveViewTest
-  import Cpgo.AccountsFixtures
+  import Pento.AccountsFixtures
 
-  alias Cpgo.Accounts
-  alias Cpgo.Repo
+  alias Pento.Accounts
+  alias Pento.Repo
 
   setup do
     %{user: user_fixture()}

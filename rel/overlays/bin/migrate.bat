@@ -1,1 +1,1 @@
-call "%~dp0\cpgo" eval Cpgo.Release.migrate
+call "%~dp0\pento" eval Pento.Release.migrate
